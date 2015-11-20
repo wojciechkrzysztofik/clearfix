@@ -1,0 +1,106 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+
+<main class="content" role="main">
+    <article class="{{post_class}}">
+
+        <header class="post-header">
+            <h1 class="post-title">{{title}}</h1>
+
+            <section class="post-meta">
+                {{author}} | <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+            </section>
+
+            {{#if image}}
+                <img class="post-cover" src="{{image}}"/>
+            {{/if}}
+        </header>
+
+        <section class="post-content">
+            {{content}}
+        </section>
+
+        <footer class="post-footer">
+
+        {{! Everything inside the #author tags pulls data from the author }}
+        {{#author}}
+
+            <section class="author">
+                {{#if image}}
+                    <figure class="author-image animated hiding" data-animation="flipInX">
+                        <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
+                    </figure>
+                {{/if}}
+
+                <section class="post-meta">
+                    {{name}} | <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+                </section>
+            </section>
+
+        {{/author}}
+
+            <section class="share">
+                <h4>Share: </h4>
+                <a class="btn-share" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}" data-width="550" data-height="235">
+                    <span class="socicon socicon-twitter"></span>
+                </a>
+                <a class="btn-share" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" data-width="580" data-height="296">
+                    <span class="socicon socicon-facebook"></span>
+                </a>
+                <a class="btn-share" href="https://plus.google.com/share?url={{url absolute="true"}}" data-width="490" data-height="530">
+                    <span class="socicon socicon-google"></span>
+                </a>
+                <div class="fb-like" data-href="{{url absolute="true"}}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+            </section>
+        </footer>
+        <section class="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'clearfixghosttheme';
+                var disqus_identifier = '{{post.id}}';
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//clearfixghosttheme.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+        </section>
+    </article>
+
+    <aside class="read-next">
+        {{#next_post}}
+            <a class="read-next-story" href="{{url}}">
+                <section class="post">
+                    <div class="post-nav left">
+                        <i class="fa fa-angle-left fa-5x"></i>
+                    </div>
+                    <div class="post-info right">
+                        <h2>{{title}}</h2>
+                        <p>{{excerpt words="19"}}&hellip;</p>
+                    </div>
+                </section>
+            </a>
+        {{/next_post}}
+        {{#prev_post}}
+            <a class="read-next-story prev" href="{{url}}">
+                <section class="post">
+                    <div class="post-nav right">
+                        <i class="fa fa-angle-right fa-5x"></i>
+                    </div>
+                    <div class="post-info left">
+                        <h2>{{title}}</h2>
+                        <p>{{excerpt words="19"}}&hellip;</p>
+                    </div>
+                </section>
+            </a>
+        {{/prev_post}}
+    </aside>
+</main>
+{{/post}}

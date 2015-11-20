@@ -1,0 +1,33 @@
+/**
+ * HELPERS
+ */
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.hidden {
+  display: none;
+}
+
+.hiding {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.wp-caption {
+  width: 100% !important;
+}
+
+@mixin masonry-cols($cols, $breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    .posts {
+      -moz-column-count: $cols;
+      -webkit-column-count: $cols;
+      column-count: $cols;
+    }
+  }
+}

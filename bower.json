@@ -1,0 +1,26 @@
+{
+  "name": "clearfix",
+  "version": "1.0",
+  "authors": [
+    "Wojciech Krzysztofik <wkrzysztofik@icloud.com>"
+  ],
+  "main": "index.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-masonry": "~3.3.2",
+    "jquery": "~2.1.4"
+  },
+  "devDependencies": {
+    "jquery.appear": "*"
+  }
+}

@@ -1,0 +1,27 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! The big featured header }}
+
+{{! Everything inside the #author tags pulls data from the author }}
+{{#author}}
+    <section class="author">
+        {{#if image}}
+            <figure class="author-image animated hiding" data-animation="flipInX">
+                <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
+            </figure>
+        {{/if}}
+
+        <section class="post-meta">
+            {{name}}
+        </section>
+    </section>
+{{/author}}
+
+{{! The main content area on the homepage }}
+<main class="content" role="main">
+
+    {{! The tag below includes the post loop - partials/loop.hbs }}
+    {{> "loop"}}
+
+</main>

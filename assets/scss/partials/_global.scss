@@ -1,0 +1,209 @@
+/**
+ * GLOBAL STYLES
+ */
+
+body {
+  font-family: $main-font-family;
+  color: $main-font-color;
+  display: none;
+
+  .site-wrapper {
+    @include outer-container(68em);
+    max-width: 1100px;
+
+    .site-header {
+      @include row();
+      .blog-logo {
+        @include span-columns(6.5);
+        @include shift(3);
+        padding: 80px 0 40px;
+        img {
+          width: 100%;
+          @include media($small) {
+            width: 90%;
+            display: block;
+            margin: auto;
+          }
+        }
+        @include media($small) {
+          width: 100%;
+          margin: 0 auto;
+          padding: 20px 0 0;
+        }
+      }
+    }
+
+    .main-navigation {
+      padding: 5px 0;
+      border-top: 1px solid #e1e1e1;
+      border-bottom: 1px solid #e1e1e1;
+      margin: 30px 0 20px;
+      ul {
+        text-align: center;
+        padding: 0;
+        @include media($small) {
+          display: none;
+        }
+        li {
+          display: inline-block;
+          list-style-type: none;
+          margin: 0 6px;
+          a {
+            font-family: $main-font-family;
+            color: #333;
+            font-weight: 400;
+            font-size: 1.1em;
+          }
+        }
+      }
+      .mobile-menu {
+        display: none;
+        position: relative;
+        @include media($small) {
+          display: block;
+          select {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+          }
+          .btn-menu {
+            width: 110px;
+            padding-top: 15px;
+            margin: auto;
+            @include row();
+            #nav-toggle span,
+            #nav-toggle span:before,
+            #nav-toggle span:after {
+              cursor: pointer;
+              border-radius: 3px;
+              height: 5px;
+              width: 35px;
+              background: white;
+              position: absolute;
+              display: block;
+              content: '';
+              background :#d3d3d3;
+            }
+            #nav-toggle span:before {
+              top: -10px;
+              background :#e1e1e1;
+            }
+            #nav-toggle span:after {
+              bottom: -10px;
+              background :#e1e1e1;
+            }
+            .label {
+              margin: -12px 0 0 42px;
+              font-size: 1.2em;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .content {
+      font-size: 1.1em;
+    }
+
+    .site-footer {
+      text-align: center;
+      margin-top: 20px;
+      border-top: 1px solid #e1e1e1;
+      padding: 20px;
+      .social-media {
+        a {
+          font-size: 1.5em;
+          color: #d4d4d4;
+          text-decoration: none;
+          &.socicon-rss {
+            margin-left: 4px;
+          }
+          &:hover {
+            color: $hover-red;
+          }
+        }
+      }
+      .copyright {
+        margin-top: 10px;
+        a {
+          color: #444;
+        }
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #666;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.read-next-story {
+  border-top: 1px solid #e1e1e1;
+  display: block;
+  .post {
+    margin: 0 !important;
+    .post-nav {
+      width: 10%;
+      text-align: center;
+      display: block;
+      i {
+        @include media($small) {
+          font-size: 1.5em;
+        }
+      }
+      &.left {
+        float: left;
+      }
+      &.right {
+        float: right;
+      }
+    }
+    .post-info {
+      width: 90%;
+      &.left {
+        float: right;
+      }
+      &.right {
+        float: left;
+      }
+      h2 {
+        font-size: 1em;
+        margin-top: 0;
+      }
+      p {
+        font-size: 0.9em;
+      }
+    }
+  }
+  &:hover {
+    i {
+      color: $hover-red;
+    }
+  }
+
+  .author {
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 20px;
+    .author-image {
+      border: 1px solid #e3e3e3;
+      display: block;
+      width: 100px;
+      height: 100px;
+      margin: 60px auto 10px;
+      border-radius: 100px;
+      .img {
+        width: 100px;
+        height: 100px;
+        background-position: center;
+        background-size: cover;
+        display: block;
+        border: 3px solid #fff;
+        border-radius: 100px;
+      }
+    }
+  }
+}

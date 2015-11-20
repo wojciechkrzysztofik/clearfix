@@ -1,0 +1,22 @@
+<div class="posts">
+    {{#foreach posts}}
+        <article class="{{post_class}}">
+            <header class="post-header">
+                <h2 class="post-title"><a href="{{url}}" title="Go to: {{{title}}}">{{{title}}}</a></h2>
+            </header>
+            {{#if image}}
+                <a href="{{url}}" title="Go to: {{{title}}}">
+                    <div class="post-thumb" style="background-image:url({{image}})"></div>
+                </a>
+            {{/if}}
+            <section class="post-excerpt">
+                {{excerpt words="26"}}...
+            </section>
+            <footer class="post-footer">
+                <a class="btn-read-more" href="{{url}}" title="Go to: {{{title}}}">Read more</a>
+            </footer>
+        </article>
+    {{/foreach}}
+</div>
+
+{{pagination}}
